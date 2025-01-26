@@ -8,7 +8,8 @@ async function register() {
     const commands: Command[] = await Promise.all([
         import('./utils/user'),
         import('./utils/ping'),
-        import('./media/music'),
+        import('./media/connect'),
+        import('./media/disconnect'),
     ])
     for (let command of commands) {
         collection.set(command.data.name, command);
