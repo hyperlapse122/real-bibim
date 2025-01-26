@@ -12,3 +12,7 @@ node_modules
 
 # Environment variables
 .env*.local
+
+# Turborepo
+/out
+.turbo
