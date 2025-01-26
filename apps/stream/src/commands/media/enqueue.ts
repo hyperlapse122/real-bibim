@@ -1,6 +1,7 @@
 import {ChatInputCommandInteraction, GuildMember, SlashCommandBuilder} from "discord.js";
 import mediaQueueAtomFamily from "@/atoms/media-queue-atom-family";
 import store from "@/atoms/store";
+import videoInfoAtomFamily from "@/atoms/video-info-atom-family";
 
 export const data = new SlashCommandBuilder()
     .setName('enqueue')
@@ -22,14 +23,20 @@ export async function execute(interaction: ChatInputCommandInteraction) {
         return;
     }
 
+    await interaction.reply('Enqueuing...');
+
     const {id: channelId} = voiceChannel;
 
-    await interaction.reply('Enqueuing...');
-    const queue = store.get(mediaQueueAtomFamily(channelId));
-
-    queue.enqueue({
-        createdBy: member.user.tag,
-        url,
-    })
-    await interaction.editReply('Enqueued!');
+    try {
+        const queue = store.get(mediaQueueAtomFamily(channelId));
+        const info = await store.get(videoInfoAtomFamily(url));
+        queue.enqueue({
+            createdBy: member.user.tag,
+            url,
+        })
+        await interaction.editReply(`[${info.title}](${info.original_url}) by [${info.uploader}](${info.uploader_url}) is enqueued!`);
+    } catch (e) {
+        console.error(e);
+        await interaction.editReply('Failed to enqueue!');
+    }
 }
