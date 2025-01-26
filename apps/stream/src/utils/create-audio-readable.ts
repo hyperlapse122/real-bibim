@@ -38,10 +38,10 @@ export default function createAudioReadable(url: string) {
     });
 
     ytDlpProcess.on('exit', (code) => {
-        console.log(`Process exited with code: ${code}`);
+        console.log('yt-dlp Process exited with code:', code);
     });
-    ffmpeg.process.addListener('error', (err) => console.error('FFMPEG error: ', err.message))
-    ffmpeg.process.addListener('exit', (code) => console.log('FFMPEG process exited with code: ', code))
+    ffmpeg.process.addListener('error', (err) => console.error('FFMPEG error:', err.message))
+    ffmpeg.process.addListener('exit', (code) => console.log('FFMPEG process exited with code:', code))
 
     ffmpeg.process.addListener('exit', onExit);
     ytDlpProcess.addListener('exit', onExit);
