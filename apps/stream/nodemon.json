@@ -1,6 +1,13 @@
 {
-  "watch": ["src"],
+  "watch": [
+    "src",
+    "global.d.ts",
+    ".env",
+    ".env.local"
+  ],
   "ext": "ts,json",
-  "ignore": ["src/**/*.spec.ts"],
+  "ignore": [
+    "src/**/*.spec.ts"
+  ],
   "exec": "yarn build && yarn start"
 }

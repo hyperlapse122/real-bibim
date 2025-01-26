@@ -5,7 +5,7 @@ import esbuild from 'rollup-plugin-esbuild';
 export default {
     input: 'src/index.ts',
     output: {
-        file: 'dist/bundle.js',
+        dir: 'dist',
         format: 'esm',
         sourcemap: true,
         banner: '#!/usr/bin/env node'
