@@ -1,3 +1,6 @@
+# JetBrains IDE Data
+.idea
+
 # Yarn
 .pnp.*
 .yarn/*
@@ -11,4 +14,4 @@
 node_modules
 
 # Environment variables
-.env*.local
+.env*

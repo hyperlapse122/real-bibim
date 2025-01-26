@@ -2,5 +2,8 @@
   "name": "real-bibim",
   "version": "0.0.1",
   "private": true,
-  "packageManager": "yarn@4.6.0"
+  "packageManager": "yarn@4.6.0",
+  "workspaces": [
+    "apps/*"
+  ]
 }

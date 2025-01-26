@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/real-bibim.iml" filepath="$PROJECT_DIR$/.idea/real-bibim.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apps/stream/stream.iml" filepath="$PROJECT_DIR$/apps/stream/stream.iml" />
     </modules>
   </component>
 </project>
