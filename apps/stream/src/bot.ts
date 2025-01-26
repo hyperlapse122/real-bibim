@@ -1,7 +1,7 @@
 import {Client, Events, GatewayIntentBits, MessageFlags, Routes} from "discord.js";
 
 export async function init() {
-    const {collection} = await import('./commands/collection');
+    const {collection} = await import('@/commands/collection');
 
     const client = new Client({intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildVoiceStates]});
 
@@ -35,7 +35,9 @@ export async function init() {
 
     const commands = collection.values().map(e => e.data.toJSON()).toArray()
     const data = (await client.rest.put(
-        (Routes.applicationCommands(process.env.DISCORD_CLIENT_ID)),
+        process.env.DISCORD_GUILD_ID
+            ? (Routes.applicationGuildCommands(process.env.DISCORD_CLIENT_ID, process.env.DISCORD_GUILD_ID))
+            : (Routes.applicationCommands(process.env.DISCORD_CLIENT_ID)),
         {
             body: commands
         }

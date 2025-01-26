@@ -6,10 +6,17 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "strict": true,
+    "sourceRoot": "./src",
+    "baseUrl": ".",
     "esModuleInterop": true,
     "types": [
-      "node"
-    ]
+      "@types/node"
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
   },
   "include": [
     "src/**/*",

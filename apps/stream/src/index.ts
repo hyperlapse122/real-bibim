@@ -1,7 +1,6 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import {match, Pattern} from "ts-pattern";
-import {GatewayIntentBits, MessageFlags} from "discord.js";
 
 dotenv.config({
     path: ['.env.local', '.env']
@@ -25,7 +24,7 @@ app.listen(port, () => {
         console.log(`Server running at http://localhost:${port}`);
 });
 
-const {init: discordInit} = await import('./bot');
+const {init: discordInit} = await import('@/bot');
 discordInit().then(() => {
     console.log('Discord client initialized');
 });
