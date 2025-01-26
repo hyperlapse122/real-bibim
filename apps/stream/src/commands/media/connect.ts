@@ -1,28 +1,9 @@
 import {ChatInputCommandInteraction, GuildMember, SlashCommandBuilder} from "discord.js";
-import {
-    AudioPlayerStatus,
-    createAudioPlayer,
-    entersState,
-    NoSubscriberBehavior,
-    VoiceConnectionStatus
-} from "@discordjs/voice";
+import {createAudioResource, StreamType} from "@discordjs/voice";
 import store from "@/atoms/store";
 import voiceConnectionAtomFamily from "@/atoms/voice-connection-atom-family";
-
-const player = createAudioPlayer({
-    behaviors: {
-        noSubscriber: NoSubscriberBehavior.Play,
-        maxMissedFrames: Math.round(5000 / 20),
-    },
-});
-
-player.on('stateChange', (oldState, newState) => {
-    if (oldState.status === AudioPlayerStatus.Idle && newState.status === AudioPlayerStatus.Playing) {
-        console.log('Playing audio output on audio player');
-    } else if (newState.status === AudioPlayerStatus.Idle) {
-        console.log('Playback has stopped');
-    }
-});
+import audioPlayerAtomFamily from "@/atoms/audio-player-atom-family";
+import createAudioReadable from "@/utils/create-audio-readable";
 
 export const data = new SlashCommandBuilder()
     .setName('connect')
@@ -39,19 +20,25 @@ export async function execute(interaction: ChatInputCommandInteraction) {
 
     const {id: channelId, guild: {id: guildId, voiceAdapterCreator}} = voiceChannel;
 
-    const connection = store.get(voiceConnectionAtomFamily({
-        channelId,
-        guildId,
-        adaptorCreator: voiceAdapterCreator,
-    }))
-
     await interaction.reply('Connecting...');
     try {
-        await entersState(connection, VoiceConnectionStatus.Ready, 30000)
+        await store.get(voiceConnectionAtomFamily({
+            channelId,
+            guildId,
+            adaptorCreator: voiceAdapterCreator,
+        }))
+        const player = store.get(audioPlayerAtomFamily(channelId));
         await interaction.editReply('Connected!');
+
+        const audioResource = createAudioResource(
+            createAudioReadable('https://www.youtube.com/watch?v=G5mPgsBDhMo'),
+            {
+                inputType: StreamType.OggOpus,
+            }
+        )
+        player.play(audioResource);
     } catch (e) {
         console.error(e);
         await interaction.editReply('Failed to connect!');
-        connection.destroy();
     }
 }

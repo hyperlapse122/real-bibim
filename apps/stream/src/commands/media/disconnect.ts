@@ -1,7 +1,7 @@
 import {ChatInputCommandInteraction, GuildMember, SlashCommandBuilder} from "discord.js";
-import {entersState, VoiceConnectionStatus} from "@discordjs/voice";
 import store from "@/atoms/store";
 import voiceConnectionAtomFamily from "@/atoms/voice-connection-atom-family";
+import audioPlayerAtomFamily from "@/atoms/audio-player-atom-family";
 
 export const data = new SlashCommandBuilder()
     .setName('disconnect')
@@ -18,7 +18,9 @@ export async function execute(interaction: ChatInputCommandInteraction) {
 
     const {id: channelId, guild: {id: guildId, voiceAdapterCreator}} = voiceChannel;
 
-    const connection = store.get(voiceConnectionAtomFamily({
+    store.get(audioPlayerAtomFamily(channelId)).stop(true);
+
+    const connection = await store.get(voiceConnectionAtomFamily({
         channelId,
         guildId,
         adaptorCreator: voiceAdapterCreator,

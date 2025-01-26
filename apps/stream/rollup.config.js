@@ -1,7 +1,8 @@
-import {nodeResolve} from '@rollup/plugin-node-resolve';
+import resolve, {nodeResolve} from '@rollup/plugin-node-resolve';
 import nodeExternals from 'rollup-plugin-node-externals';
-import tsConfigPaths from "rollup-plugin-tsconfig-paths";
-import esbuild from 'rollup-plugin-esbuild';
+import typescript from 'rollup-plugin-typescript2';
+import commonjs from '@rollup/plugin-commonjs';
+import json from '@rollup/plugin-json';
 
 export default {
     input: 'src/index.ts',
@@ -9,19 +10,18 @@ export default {
         dir: 'dist',
         format: 'esm',
         sourcemap: true,
-        banner: '#!/usr/bin/env node'
+        banner: '#!/usr/bin/env node',
     },
     plugins: [
-        tsConfigPaths(),
-        // typescript(),
-        nodeResolve(),
-        nodeExternals(),
-        // terser(),
-        esbuild({
-            target: 'esnext',     // Set the target to 'esnext'
-            sourceMap: true,      // Enable sourcemaps
-            minify: true,         // Enable minification --minification increases the build time sometimes
-            tsconfig: './tsconfig.json',
+        nodeResolve({
+            extensions: ['.js', '.ts'], // Add .ts if you're using TypeScript
         }),
+        nodeExternals({
+            exclude: ['@ace-klerk/types'],
+        }),
+        resolve(),
+        commonjs(),
+        json(),
+        typescript({tsconfig: './tsconfig.json'}),
     ]
 };
