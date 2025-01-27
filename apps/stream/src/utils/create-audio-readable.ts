@@ -16,6 +16,8 @@ export default function createAudioReadable(url: string) {
             'libopus',
             '-f',
             'opus',
+            '-af',
+            'loudnorm=I=-16:TP=-1.5:LRA=11',
             '-ar',
             '48000',
             '-ac',

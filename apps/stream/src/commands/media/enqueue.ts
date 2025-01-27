@@ -34,7 +34,7 @@ export async function execute(interaction: ChatInputCommandInteraction) {
             createdBy: member.user.tag,
             url,
         })
-        await interaction.editReply(`[${info.title}](${info.original_url}) by [${info.uploader}](${info.uploader_url}) is enqueued!`);
+        await interaction.editReply(`[${info.title}](${info.original_url}) by ${info.uploader_url && `[${info.uploader}](${info.uploader_url})` || info.uploader} is enqueued!`);
     } catch (e) {
         console.error(e);
         await interaction.editReply('Failed to enqueue!');

@@ -10,7 +10,7 @@ const videoInfoSchema = z.object({
     duration: z.number(),
     description: z.string(),
     uploader: z.string(),
-    uploader_url: z.string().url(),
+    uploader_url: z.nullable(z.string().url()),
     original_url: z.string().url(),
     extractor: z.string(),
 })
