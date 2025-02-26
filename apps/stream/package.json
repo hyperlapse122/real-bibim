@@ -4,9 +4,15 @@
   "type": "module",
   "main": "./dist/index.js",
   "prettier": "@real-bibim/prettier-config",
+  "exports": {
+    "./router": {
+      "types": "./dist/trpc/app-router.d.ts",
+      "default": "./dist/trpc/app-router.js"
+    }
+  },
   "scripts": {
     "clean": "rimraf ./dist",
-    "build": "yarn clean && rollup -c",
+    "build": "yarn clean && tsc && tsc-alias",
     "start": "node dist/index.js",
     "dev": "nodemon",
     "lint": "eslint .",
@@ -15,6 +21,7 @@
   "dependencies": {
     "@discordjs/opus": "^0.10.0",
     "@discordjs/voice": "^0.18.0",
+    "@trpc/server": "^11.0.0-rc.808",
     "bufferutil": "^4.0.9",
     "child_process": "^1.0.2",
     "discord.js": "^14.18.0",
@@ -46,6 +53,7 @@
     "rollup-plugin-node-externals": "^8.0.0",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.36.0",
+    "tsc-alias": "^1.8.11",
     "tslib": "^2.8.1",
     "typescript": "^5.7.3"
   }

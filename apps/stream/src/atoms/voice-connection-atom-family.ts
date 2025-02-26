@@ -1,11 +1,11 @@
 import { atomFamily, atomWithRefresh } from 'jotai/utils';
 import {
-  DiscordGatewayAdapterCreator,
+  type DiscordGatewayAdapterCreator,
   entersState,
   joinVoiceChannel,
   VoiceConnectionStatus,
 } from '@discordjs/voice';
-import audioPlayerAtomFamily from '@/atoms/audio-player-atom-family';
+import audioPlayerAtomFamily from '@/atoms/audio-player-atom-family.js';
 import { atomEffect } from 'jotai-effect';
 import { atom } from 'jotai';
 

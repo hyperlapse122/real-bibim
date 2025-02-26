@@ -1,6 +1,9 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import { match, Pattern } from 'ts-pattern';
+import * as trpcExpress from '@trpc/server/adapters/express';
+import { appRouter } from './trpc/app-router.js';
+import { createContext } from '@/trpc/context.js';
 
 dotenv.config({
   path: ['.env.local', '.env'],
@@ -17,6 +20,14 @@ const port = match(Number(process.env.PORT))
     return 3000;
   });
 
+app.use(
+  '/trpc',
+  trpcExpress.createExpressMiddleware({
+    router: appRouter,
+    createContext,
+  }),
+);
+
 app.get('/', (req, res) => {
   res.send('Hello, Express with Rollup and TypeScript!!');
 });
@@ -26,7 +37,7 @@ app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
 
-const { init: discordInit } = await import('@/bot');
+const { init: discordInit } = await import('@/bot.js');
 discordInit().then(() => {
   console.log('Discord client initialized');
 });

@@ -1,6 +1,7 @@
 import { atomFamily } from 'jotai/utils';
-import { atom } from 'jotai';
+import { atom, type PrimitiveAtom } from 'jotai';
 import {
+  AudioPlayer,
   AudioPlayerStatus,
   createAudioPlayer,
   createAudioResource,
@@ -8,11 +9,15 @@ import {
   StreamType,
 } from '@discordjs/voice';
 import { withAtomEffect } from 'jotai-effect';
-import mediaQueueAtomFamily from '@/atoms/media-queue-atom-family';
-import { QueueEvent } from '@/utils/queue';
-import createAudioReadable from '@/utils/create-audio-readable';
+import mediaQueueAtomFamily from '@/atoms/media-queue-atom-family.js';
+import { QueueEvent } from '@/utils/queue.js';
+import createAudioReadable from '@/utils/create-audio-readable.js';
+import type { AtomFamily } from 'jotai/vanilla/utils/atomFamily';
 
-const audioPlayerAtomFamily = atomFamily((channelId: string) => {
+const audioPlayerAtomFamily: AtomFamily<
+  string,
+  PrimitiveAtom<AudioPlayer>
+> = atomFamily((channelId: string) => {
   const playerAtom = withAtomEffect(
     atom(
       createAudioPlayer({

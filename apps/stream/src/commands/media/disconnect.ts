@@ -3,9 +3,9 @@ import {
   GuildMember,
   SlashCommandBuilder,
 } from 'discord.js';
-import store from '@/atoms/store';
-import voiceConnectionAtomFamily from '@/atoms/voice-connection-atom-family';
-import audioPlayerAtomFamily from '@/atoms/audio-player-atom-family';
+import store from '@/atoms/store.js';
+import voiceConnectionAtomFamily from '@/atoms/voice-connection-atom-family.js';
+import audioPlayerAtomFamily from '@/atoms/audio-player-atom-family.js';
 
 export const data = new SlashCommandBuilder()
   .setName('disconnect')

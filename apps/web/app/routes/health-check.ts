@@ -1,5 +1,10 @@
+import { createTRPCClient } from 'utils/trpc/server';
 import type { Route } from './+types/health-check';
 
 export async function loader({}: Route.LoaderArgs) {
-  return {};
+  const client = createTRPCClient();
+  await client.heathCheck.query();
+  return {
+    stream: 'OK',
+  };
 }
