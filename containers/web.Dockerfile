@@ -31,12 +31,14 @@ COPY --chown=nodejs:nodejs ./out/json/yarn.lock /app/
 COPY --from=deps-prod --chown=nodejs:nodejs /app/apps/web/node_modules /app/node_modules
 COPY --from=builder --chown=nodejs:nodejs /app/apps/web/build /app/build
 
-USER nodejs
-
 WORKDIR /app
 
 ENV NODE_ENV=production
 ENV PORT=3000
 
+RUN apk add --no-cache curl
+HEALTHCHECK --interval=30s --timeout=5s CMD curl -f http://localhost:${PORT}/health-check || exit 1
+
+USER nodejs
 EXPOSE 3000
 CMD ["node", "./node_modules/.bin/react-router-serve", "./build/server/index.js"]
