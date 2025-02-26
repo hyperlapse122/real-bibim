@@ -3,11 +3,14 @@
   "packageManager": "yarn@4.6.0",
   "type": "module",
   "main": "./dist/index.js",
+  "prettier": "@real-bibim/prettier-config",
   "scripts": {
     "clean": "rimraf ./dist",
     "build": "yarn clean && rollup -c",
     "start": "node dist/index.js",
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "lint": "eslint .",
+    "check-types": "tsc --noEmit"
   },
   "dependencies": {
     "@discordjs/opus": "^0.10.0",
@@ -26,6 +29,8 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@real-bibim/eslint-config": "workspace:^",
+    "@real-bibim/prettier-config": "workspace:^",
     "@rollup/plugin-commonjs": "^28.0.2",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.0",
@@ -33,7 +38,9 @@
     "@types/node": "^22.13.5",
     "@types/react": "^19.0.10",
     "esbuild": "^0.25.0",
+    "eslint": "^9.21.0",
     "nodemon": "^3.1.9",
+    "prettier": "3.5.2",
     "rimraf": "^6.0.1",
     "rollup": "^4.34.8",
     "rollup-plugin-node-externals": "^8.0.0",

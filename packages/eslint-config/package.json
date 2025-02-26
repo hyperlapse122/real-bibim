@@ -1,0 +1,30 @@
+{
+  "name": "@real-bibim/eslint-config",
+  "packageManager": "yarn@4.6.0",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "exports": {
+    "./base": "./base.js",
+    "./typescript": "./typescript.js"
+  },
+  "peerDependencies": {
+    "@real-bibim/prettier-config": "workspace:^",
+    "eslint": "*",
+    "typescript": "*"
+  },
+  "devDependencies": {
+    "@real-bibim/prettier-config": "workspace:^",
+    "eslint": "^9.21.0",
+    "prettier": "^3.5.2",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@eslint/js": "^9.21.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "typescript-eslint": "^8.25.0"
+  },
+  "prettier": "@real-bibim/prettier-config"
+}

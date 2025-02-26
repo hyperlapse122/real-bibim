@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/packages/eslint-config/eslint-config.iml" filepath="$PROJECT_DIR$/packages/eslint-config/eslint-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/packages/prettier-config/prettier-config.iml" filepath="$PROJECT_DIR$/packages/prettier-config/prettier-config.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/real-bibim.iml" filepath="$PROJECT_DIR$/.idea/real-bibim.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/stream/stream.iml" filepath="$PROJECT_DIR$/apps/stream/stream.iml" />
     </modules>

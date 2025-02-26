@@ -8,6 +8,19 @@
       "outputs": [
         "./dist/**"
       ]
+    },
+    "lint": {
+      "dependsOn": []
+    },
+    "check-types-transit": {
+      "dependsOn": [
+        "^check-types-transit"
+      ]
+    },
+    "check-types": {
+      "dependsOn": [
+        "check-types-transit"
+      ]
     }
   }
 }

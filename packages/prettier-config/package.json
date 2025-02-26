@@ -1,0 +1,11 @@
+{
+  "name": "@real-bibim/prettier-config",
+  "packageManager": "yarn@4.6.0",
+  "main": ".prettierrc.json",
+  "devDependencies": {
+    "prettier": "3.5.2"
+  },
+  "peerDependencies": {
+    "prettier": "*"
+  }
+}
