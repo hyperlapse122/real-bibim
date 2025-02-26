@@ -3,6 +3,8 @@ name: Stream Container Image CI/CD
 on:
   push:
     branches: [ "main" ]
+    tags:
+      - 'v*' # Trigger on SemVer tags
   pull_request:
     branches: [ "main" ]
 
