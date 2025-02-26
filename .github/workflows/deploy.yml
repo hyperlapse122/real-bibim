@@ -1,4 +1,4 @@
-name: Stream Container Image CI/CD
+name: Deployment
 
 on:
   push:
