@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/packages/prettier-config/prettier-config.iml" filepath="$PROJECT_DIR$/packages/prettier-config/prettier-config.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/real-bibim.iml" filepath="$PROJECT_DIR$/.idea/real-bibim.iml" />
       <module fileurl="file://$PROJECT_DIR$/apps/stream/stream.iml" filepath="$PROJECT_DIR$/apps/stream/stream.iml" />
+      <module fileurl="file://$PROJECT_DIR$/apps/web/web.iml" filepath="$PROJECT_DIR$/apps/web/web.iml" />
     </modules>
   </component>
 </project>

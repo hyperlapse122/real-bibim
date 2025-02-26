@@ -3,10 +3,12 @@
   "tasks": {
     "build": {
       "dependsOn": [
-        "^build"
+        "^build",
+        "typegen"
       ],
       "outputs": [
-        "./dist/**"
+        "./dist/**",
+        "./build/**"
       ]
     },
     "lint": {
@@ -19,7 +21,14 @@
     },
     "check-types": {
       "dependsOn": [
-        "check-types-transit"
+        "check-types-transit",
+        "typegen"
+      ]
+    },
+    "typegen": {
+      "dependsOn": [],
+      "outputs": [
+        "./.react-router/types/**"
       ]
     }
   }
