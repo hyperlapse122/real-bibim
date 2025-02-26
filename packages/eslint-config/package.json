@@ -7,7 +7,8 @@
   },
   "exports": {
     "./base": "./base.js",
-    "./typescript": "./typescript.js"
+    "./typescript": "./typescript.js",
+    "./react": "./react.js"
   },
   "peerDependencies": {
     "@real-bibim/prettier-config": "workspace:^",
@@ -24,6 +25,8 @@
     "@eslint/js": "^9.21.0",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-react": "^7.37.4",
+    "globals": "^16.0.0",
     "typescript-eslint": "^8.25.0"
   },
   "prettier": "@real-bibim/prettier-config"

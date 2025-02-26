@@ -1,13 +1,15 @@
 {
-  "name": "web",
+  "name": "@real-bibim/web",
   "private": true,
   "type": "module",
+  "prettier": "@real-bibim/prettier-config",
   "scripts": {
     "build": "react-router build",
     "dev": "react-router dev",
     "start": "react-router-serve ./build/server/index.js",
     "check-types": "tsc --noEmit",
-    "typegen": "react-router typegen"
+    "typegen": "react-router typegen",
+    "lint": "eslint ."
   },
   "dependencies": {
     "@react-router/node": "^7.2.0",
@@ -19,10 +21,14 @@
   },
   "devDependencies": {
     "@react-router/dev": "^7.2.0",
+    "@real-bibim/eslint-config": "workspace:^",
+    "@real-bibim/prettier-config": "workspace:^",
     "@tailwindcss/vite": "^4.0.0",
     "@types/node": "^20",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.1",
+    "eslint": "^9.21.0",
+    "prettier": "^3.5.2",
     "react-router-devtools": "^1.1.0",
     "tailwindcss": "^4.0.0",
     "typescript": "^5.7.2",
