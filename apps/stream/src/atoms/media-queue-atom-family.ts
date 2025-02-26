@@ -1,6 +1,6 @@
 import { atomFamily } from 'jotai/utils';
 import { atom } from 'jotai';
-import Queue from '@/utils/queue';
+import Queue from '@/utils/queue.js';
 
 export type MediaQueueItem = {
   url: string;

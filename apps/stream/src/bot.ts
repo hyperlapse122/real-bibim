@@ -7,7 +7,7 @@ import {
 } from 'discord.js';
 
 export async function init() {
-  const { collection } = await import('@/commands/collection');
+  const { collection } = await import('@/commands/collection.js');
 
   const client = new Client({
     intents: [

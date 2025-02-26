@@ -3,9 +3,9 @@ import {
   GuildMember,
   SlashCommandBuilder,
 } from 'discord.js';
-import mediaQueueAtomFamily from '@/atoms/media-queue-atom-family';
-import store from '@/atoms/store';
-import videoInfoAtomFamily from '@/atoms/video-info-atom-family';
+import mediaQueueAtomFamily from '@/atoms/media-queue-atom-family.js';
+import store from '@/atoms/store.js';
+import videoInfoAtomFamily from '@/atoms/video-info-atom-family.js';
 
 export const data = new SlashCommandBuilder()
   .setName('enqueue')
