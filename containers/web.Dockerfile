@@ -39,6 +39,9 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=3000
 ENV STREAM_TRPC_URL="http://localhost:5711/trpc"
+ENV STREAM_TRPC_WS_URL="ws://localhost:5711/trpc"
+ENV PUBLIC_STREAM_TRPC_URL="http://localhost:5711/trpc"
+ENV PUBLIC_STREAM_TRPC_WS_URL="ws://localhost:5711/trpc"
 
 RUN apk add --no-cache curl
 HEALTHCHECK --interval=30s --timeout=5s CMD curl -f http://localhost:${PORT}/health-check || exit 1

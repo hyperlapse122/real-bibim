@@ -5,6 +5,7 @@ import {
   type TRPCClient,
 } from '@trpc/client';
 import { z } from 'zod';
+import superjson from 'superjson';
 
 const urlSchema = z.string().url();
 
@@ -21,6 +22,7 @@ export function createTRPCClient(): TRPCClient<AppRouter> {
         async headers() {
           return {};
         },
+        transformer: superjson,
       }),
     ],
   });

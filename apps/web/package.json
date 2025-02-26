@@ -17,9 +17,12 @@
     "@trpc/client": "^11.0.0-rc.808",
     "@trpc/server": "^11.0.0-rc.808",
     "isbot": "^5.1.17",
+    "jotai": "^2.12.1",
+    "jotai-devtools": "^0.11.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router": "^7.2.0",
+    "superjson": "^2.2.2",
     "zod": "^3.24.2"
   },
   "devDependencies": {

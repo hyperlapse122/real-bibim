@@ -1,5 +1,6 @@
 import logoDark from './logo-dark.svg';
 import logoLight from './logo-light.svg';
+import StreamHealthCheckTime from '../../stream/components/stream-health-check-time';
 
 export function Welcome() {
   return (
@@ -38,6 +39,12 @@ export function Welcome() {
                   </a>
                 </li>
               ))}
+              <li>
+                <div className="flex flex-col">
+                  <span>Stream server timestamp</span>
+                  <StreamHealthCheckTime />
+                </div>
+              </li>
             </ul>
           </nav>
         </div>

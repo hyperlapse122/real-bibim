@@ -1,7 +1,9 @@
 // created for each request
-import * as trpcExpress from '@trpc/server/adapters/express';
+import type { CreateExpressContextOptions } from '@trpc/server/adapters/express';
+import type { CreateWSSContextFnOptions } from '@trpc/server/adapters/ws';
 
-export const createContext =
-  ({}: trpcExpress.CreateExpressContextOptions) => ({}); // no context
+export const createContext = ({}:
+  | CreateExpressContextOptions
+  | CreateWSSContextFnOptions) => ({}); // no context
 export type Context = Awaited<ReturnType<typeof createContext>>;
 // const t = initTRPC.context<Context>().create();
