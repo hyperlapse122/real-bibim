@@ -18,8 +18,9 @@ export async function loader({}: Route.LoaderArgs) {
 export default function GlobalLayout({ loaderData }: Route.ComponentProps) {
   return (
     <StoreProvider>
-      <StreamEndpointHydrator url={loaderData} />
-      <Outlet />
+      <StreamEndpointHydrator url={loaderData}>
+        <Outlet />
+      </StreamEndpointHydrator>
     </StoreProvider>
   );
 }
