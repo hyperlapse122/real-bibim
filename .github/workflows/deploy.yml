@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  stream:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
