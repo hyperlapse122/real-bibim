@@ -1,7 +1,8 @@
 # syntax=docker.io/docker/dockerfile:1.7-labs
 FROM node:22-alpine AS base
+FROM --platform=$BUILDPLATFORM node:22-alpine AS builder-base
 
-FROM base AS deps
+FROM builder-base AS deps
 WORKDIR /app
 
 COPY ./out/json .
@@ -11,7 +12,7 @@ FROM deps AS deps-prod
 
 RUN yarn workspaces focus -A --production
 
-FROM base AS builder
+FROM builder-base AS builder
 WORKDIR /app
 ENV TURBO_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
@@ -27,8 +28,8 @@ RUN addgroup --system --gid 1001 nodejs && adduser --system --uid 1001 nodejs
 
 COPY --chown=nodejs:nodejs ./out/json/package.json /app/
 COPY --chown=nodejs:nodejs ./out/json/yarn.lock /app/
-COPY --from=deps-prod --chown=nodejs:nodejs /app/apps/web/node_modules ./node_modules
-COPY --from=builder --chown=nodejs:nodejs /app/apps/web/build ./build
+COPY --from=deps-prod --chown=nodejs:nodejs /app/apps/web/node_modules /app/node_modules
+COPY --from=builder --chown=nodejs:nodejs /app/apps/web/build /app/build
 
 USER nodejs
 
@@ -38,4 +39,4 @@ ENV NODE_ENV=production
 ENV PORT=3000
 
 EXPOSE 3000
-CMD ["yarn", "start"]
+CMD ["node", "./node_modules/.bin/react-router-serve", "./build/server/index.js"]
