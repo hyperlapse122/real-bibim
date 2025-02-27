@@ -21,7 +21,7 @@
   "dependencies": {
     "@discordjs/opus": "^0.10.0",
     "@discordjs/voice": "^0.18.0",
-    "@trpc/server": "^11.0.0-rc.808",
+    "@trpc/server": "^11.0.0-rc.817",
     "bufferutil": "^4.0.9",
     "child_process": "^1.0.2",
     "cors": "^2.8.5",
