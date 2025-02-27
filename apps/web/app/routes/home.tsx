@@ -9,5 +9,9 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home({}: Route.ComponentProps) {
-  return <Welcome />;
+  return (
+    <>
+      <Welcome />
+    </>
+  );
 }

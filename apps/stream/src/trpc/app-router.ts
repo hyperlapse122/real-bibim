@@ -7,6 +7,10 @@ export const t = initTRPC.context<Context>().create({
   transformer: superjson,
 });
 export const appRouter = t.router({
+  ping: t.procedure
+    .input(z.void())
+    .output(z.void())
+    .query(() => {}),
   healthCheck: t.procedure
     .input(
       z.object({

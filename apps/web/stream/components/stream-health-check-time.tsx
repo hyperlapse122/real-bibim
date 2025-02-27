@@ -1,6 +1,6 @@
 'use client';
 
-import { useTRPC } from '@/utils/trpc/contenxt';
+import { useTRPC } from '@/utils/trpc/client';
 import { useSubscription } from '@trpc/tanstack-react-query';
 
 export default function StreamHealthCheckTime() {
