@@ -30,9 +30,9 @@ FROM base AS runner
 
 RUN addgroup --system --gid 1001 nodejs && adduser --system --uid 1001 nodejs
 
-COPY --chown=nodejs:nodejs ./out/json/apps/web/package.json /app/
-COPY --from=deps-prod --chown=nodejs:nodejs /app/apps/web/node_modules /app/node_modules
-COPY --from=builder --chown=nodejs:nodejs /app/apps/web/build /app/build
+COPY --chown=nodejs:nodejs ./out/json/apps/web-rr/package.json /app/
+COPY --from=deps-prod --chown=nodejs:nodejs /app/apps/web-rr/node_modules /app/node_modules
+COPY --from=builder --chown=nodejs:nodejs /app/apps/web-rr/build /app/build
 
 WORKDIR /app
 

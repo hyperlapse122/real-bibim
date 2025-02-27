@@ -1,5 +1,5 @@
 {
-  "name": "@real-bibim/web",
+  "name": "@real-bibim/web-rr",
   "private": true,
   "type": "module",
   "prettier": "@real-bibim/prettier-config",

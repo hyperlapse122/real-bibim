@@ -2024,9 +2024,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@real-bibim/web@workspace:apps/web":
+"@real-bibim/web-rr@workspace:apps/web-rr":
   version: 0.0.0-use.local
-  resolution: "@real-bibim/web@workspace:apps/web"
+  resolution: "@real-bibim/web-rr@workspace:apps/web-rr"
   dependencies:
     "@react-router/dev": "npm:^7.2.0"
     "@react-router/node": "npm:^7.2.0"
