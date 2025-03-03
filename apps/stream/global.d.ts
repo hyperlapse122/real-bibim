@@ -8,6 +8,12 @@ declare global {
       DISCORD_GUILD_ID?: `${number}`;
     }
   }
+
+  interface ImportMeta {
+    env: {
+      [key: string]: string | undefined;
+    };
+  }
 }
 
 export {};

@@ -15,7 +15,6 @@ app.get('/', (req, res) => {
   res.send('Hello, Express with Vite and TypeScript!!');
 });
 
-// @ts-expect-error There is no env metadata
 if (import.meta.env.PROD) {
   const port = match(Number(process.env.PORT))
     .with(Pattern.number.int().between(1, 65535), (e) => e)
