@@ -1,18 +1,7 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import type { ReactNode } from 'react';
-import Providers from '@/common/components/providers';
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
+import Providers from '@/common/components/providers/providers';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -30,7 +19,7 @@ export default function RootLayout({
 
   // noinspection HtmlRequiredTitleElement,JSUnresolvedLibraryURL
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         {process.env.NODE_ENV === 'development' && (
           <script
@@ -39,11 +28,8 @@ export default function RootLayout({
             src="//unpkg.com/react-scan/dist/auto.global.js"
           />
         )}
-        {/* rest of your scripts go under */}
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className="antialiased">
         <Providers publicStreamServerUrl={publicStreamServerUrl}>
           {children}
         </Providers>
