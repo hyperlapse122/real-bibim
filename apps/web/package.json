@@ -1,45 +1,35 @@
 {
-  "name": "@real-bibim/web",
+  "name": "web",
+  "version": "0.1.0",
   "private": true,
   "type": "module",
-  "prettier": "@real-bibim/prettier-config",
   "scripts": {
-    "build": "react-router build",
-    "dev": "react-router dev",
-    "start": "react-router-serve ./build/server/index.js",
-    "check-types": "tsc --noEmit",
-    "typegen": "react-router typegen",
-    "lint": "eslint ."
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@react-router/node": "^7.2.0",
-    "@react-router/serve": "^7.2.0",
-    "@trpc/client": "^11.0.0-rc.808",
-    "@trpc/server": "^11.0.0-rc.808",
-    "isbot": "^5.1.17",
-    "jotai": "^2.12.1",
-    "jotai-devtools": "^0.11.0",
+    "next": "15.2.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-router": "^7.2.0",
-    "superjson": "^2.2.2",
-    "zod": "^3.24.2"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@react-router/dev": "^7.2.0",
+    "@eslint/eslintrc": "^3.3.0",
+    "@next/eslint-plugin-next": "^15.2.0",
     "@real-bibim/eslint-config": "workspace:^",
     "@real-bibim/prettier-config": "workspace:^",
-    "@real-bibim/stream": "workspace:^",
-    "@tailwindcss/vite": "^4.0.0",
-    "@types/node": "^20",
-    "@types/react": "^19.0.1",
-    "@types/react-dom": "^19.0.1",
+    "@tailwindcss/postcss": "^4.0.9",
+    "@types/node": "^22.13.5",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@typescript-eslint/eslint-plugin": "^8.25.0",
+    "@typescript-eslint/parser": "^8.25.0",
     "eslint": "^9.21.0",
-    "prettier": "^3.5.2",
-    "react-router-devtools": "^1.1.0",
-    "tailwindcss": "^4.0.0",
-    "typescript": "^5.7.2",
-    "vite": "^5.4.11",
-    "vite-tsconfig-paths": "^5.1.4"
-  }
+    "eslint-config-next": "15.2.0",
+    "prettier": "3.5.2",
+    "tailwindcss": "^4.0.9",
+    "typescript": "^5.7.3"
+  },
+  "prettier": "@real-bibim/prettier-config"
 }
