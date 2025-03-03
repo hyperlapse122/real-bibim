@@ -28,8 +28,19 @@ export default function RootLayout({
   if (!publicStreamServerUrl)
     throw new Error('PUBLIC_STREAM_SERVER_URL is not defined');
 
+  // noinspection HtmlRequiredTitleElement,JSUnresolvedLibraryURL
   return (
     <html lang="en">
+      <head>
+        {process.env.NODE_ENV === 'development' && (
+          <script
+            async
+            crossOrigin="anonymous"
+            src="//unpkg.com/react-scan/dist/auto.global.js"
+          />
+        )}
+        {/* rest of your scripts go under */}
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

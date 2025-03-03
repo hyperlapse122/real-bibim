@@ -8,7 +8,6 @@ export default async function Home() {
   const result = await client.say({
     sentence: 'Hello',
   });
-  console.log(result);
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
@@ -31,7 +30,7 @@ export default async function Home() {
           </li>
           <li className="my-1">Save and see your changes instantly.</li>
           <li className="my-1">
-            <StreamServerTestClient sentence="Hello from client!" />
+            <StreamServerTestClient sentence={result.sentence} />
           </li>
         </ol>
 

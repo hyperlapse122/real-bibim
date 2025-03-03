@@ -11,6 +11,7 @@ const nextConfig: NextConfig = {
   experimental: {
     serverComponentsHmrCache: false, // defaults to true
   },
+  transpilePackages: ['jotai-devtools'],
 };
 
 export default nextConfig;
