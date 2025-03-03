@@ -2,6 +2,8 @@ import dotenv from 'dotenv';
 import express, { type Express } from 'express';
 import { match, Pattern } from 'ts-pattern';
 import cors from 'cors';
+import routes from './connect';
+import { expressConnectMiddleware } from '@connectrpc/connect-express';
 
 dotenv.config({
   path: ['.env.local', '.env'],
@@ -10,6 +12,11 @@ dotenv.config({
 const app = express();
 
 app.use(cors());
+app.use(
+  expressConnectMiddleware({
+    routes,
+  }),
+);
 
 app.get('/', (req, res) => {
   res.send('Hello, Express with Vite and TypeScript!!');

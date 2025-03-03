@@ -130,6 +130,37 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@connectrpc/connect-express@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "@connectrpc/connect-express@npm:2.0.2"
+  peerDependencies:
+    "@bufbuild/protobuf": ^2.2.0
+    "@connectrpc/connect": 2.0.2
+    "@connectrpc/connect-node": 2.0.2
+    express: ^4.18.2 || ^5.0.1
+  checksum: 10c0/a402c6b549e585354d9993a4b03939e48b0ae95aafa6b40cde9d45b6f7eef8ce9e47be1b93110a2ba33234f1d4a80af52c48e54f4901d8960f0683514ace052a
+  languageName: node
+  linkType: hard
+
+"@connectrpc/connect-node@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "@connectrpc/connect-node@npm:2.0.2"
+  peerDependencies:
+    "@bufbuild/protobuf": ^2.2.0
+    "@connectrpc/connect": 2.0.2
+  checksum: 10c0/e812d0f5fdd58b2680816c34fa0fafcd98798b60999373277638503e13e9678139bc5dda7a083823e4a1a1043aa4b79013d190cdcf286a6d3bfabcc0dcab5143
+  languageName: node
+  linkType: hard
+
+"@connectrpc/connect@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "@connectrpc/connect@npm:2.0.2"
+  peerDependencies:
+    "@bufbuild/protobuf": ^2.2.0
+  checksum: 10c0/e1bf64e51fab1fb9148f4122404e1e943ff7e1c16cc241a16e040386217741a4fda65f65e3f44ddcf9b8799115234298f429815debc317a6911ffa75b155b1ba
+  languageName: node
+  linkType: hard
+
 "@discordjs/builders@npm:^1.10.1":
   version: 1.10.1
   resolution: "@discordjs/builders@npm:1.10.1"
@@ -923,7 +954,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@real-bibim/protos@workspace:packages/protos":
+"@real-bibim/protos@workspace:^, @real-bibim/protos@workspace:packages/protos":
   version: 0.0.0-use.local
   resolution: "@real-bibim/protos@workspace:packages/protos"
   dependencies:
@@ -942,10 +973,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@real-bibim/stream@workspace:apps/stream"
   dependencies:
+    "@bufbuild/protobuf": "npm:^2.2.3"
+    "@connectrpc/connect": "npm:^2.0.2"
+    "@connectrpc/connect-express": "npm:^2.0.2"
+    "@connectrpc/connect-node": "npm:^2.0.2"
     "@discordjs/opus": "npm:^0.10.0"
     "@discordjs/voice": "npm:^0.18.0"
     "@real-bibim/eslint-config": "workspace:^"
     "@real-bibim/prettier-config": "workspace:^"
+    "@real-bibim/protos": "workspace:^"
     "@swc/core": "npm:^1.11.5"
     "@types/cors": "npm:^2.8.17"
     "@types/express": "npm:^5.0.0"
@@ -971,6 +1007,31 @@ __metadata:
     vite-tsconfig-paths: "npm:^5.1.4"
     zlib-sync: "npm:^0.1.9"
     zod: "npm:^3.24.2"
+  languageName: unknown
+  linkType: soft
+
+"@real-bibim/web@workspace:apps/web":
+  version: 0.0.0-use.local
+  resolution: "@real-bibim/web@workspace:apps/web"
+  dependencies:
+    "@eslint/eslintrc": "npm:^3.3.0"
+    "@next/eslint-plugin-next": "npm:^15.2.0"
+    "@real-bibim/eslint-config": "workspace:^"
+    "@real-bibim/prettier-config": "workspace:^"
+    "@tailwindcss/postcss": "npm:^4.0.9"
+    "@types/node": "npm:^22.13.8"
+    "@types/react": "npm:^19.0.10"
+    "@types/react-dom": "npm:^19.0.4"
+    "@typescript-eslint/eslint-plugin": "npm:^8.25.0"
+    "@typescript-eslint/parser": "npm:^8.25.0"
+    eslint: "npm:^9.21.0"
+    eslint-config-next: "npm:15.2.0"
+    next: "npm:15.2.0"
+    prettier: "npm:3.5.3"
+    react: "npm:^19.0.0"
+    react-dom: "npm:^19.0.0"
+    tailwindcss: "npm:^4.0.9"
+    typescript: "npm:^5.8.2"
   languageName: unknown
   linkType: soft
 
@@ -6551,31 +6612,6 @@ __metadata:
   checksum: 10c0/db62c93d4a823e805c6f8429de035528b3c35cc7f6de4948b41e0528f94ed2ac55047d90f8534f626ef3a04e682883b570fe5ec9ee92f51bf0c3c210dbec5ac1
   languageName: node
   linkType: hard
-
-"web@workspace:apps/web":
-  version: 0.0.0-use.local
-  resolution: "web@workspace:apps/web"
-  dependencies:
-    "@eslint/eslintrc": "npm:^3.3.0"
-    "@next/eslint-plugin-next": "npm:^15.2.0"
-    "@real-bibim/eslint-config": "workspace:^"
-    "@real-bibim/prettier-config": "workspace:^"
-    "@tailwindcss/postcss": "npm:^4.0.9"
-    "@types/node": "npm:^22.13.8"
-    "@types/react": "npm:^19.0.10"
-    "@types/react-dom": "npm:^19.0.4"
-    "@typescript-eslint/eslint-plugin": "npm:^8.25.0"
-    "@typescript-eslint/parser": "npm:^8.25.0"
-    eslint: "npm:^9.21.0"
-    eslint-config-next: "npm:15.2.0"
-    next: "npm:15.2.0"
-    prettier: "npm:3.5.3"
-    react: "npm:^19.0.0"
-    react-dom: "npm:^19.0.0"
-    tailwindcss: "npm:^4.0.9"
-    typescript: "npm:^5.8.2"
-  languageName: unknown
-  linkType: soft
 
 "webidl-conversions@npm:^3.0.0":
   version: 3.0.1
