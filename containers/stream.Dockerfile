@@ -20,7 +20,7 @@ ENV NODE_ENV=production
 COPY --from=deps /app .
 COPY ./out/full .
 
-RUN yarn turbo run --cache=local:r,remote:r build
+RUN yarn turbo run --cache=local:r,remote:r "@real-bibim/stream#build"
 
 FROM base AS runner
 WORKDIR /app
