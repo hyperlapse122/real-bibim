@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import type { ReactNode } from 'react';
-import Providers from '@/common/components/providers';
+import Providers from '@/common/components/providers/providers';
 
 export const metadata: Metadata = {
   title: 'Create Next App',

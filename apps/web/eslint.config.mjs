@@ -11,6 +11,15 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
+  {
+    ignores: [
+      'dist/*',
+      'node_modules/*',
+      'common/lib/utils.ts',
+      'common/lib/hooks/*',
+      'common/components/*',
+    ],
+  },
   ...typescriptConfig,
   ...compat.extends('plugin:@next/next/core-web-vitals'),
 ];

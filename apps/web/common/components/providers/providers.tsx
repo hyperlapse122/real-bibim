@@ -1,9 +1,9 @@
 'use client';
 
-import JotaiProvider from '@/common/components/jotai-provider';
+import JotaiProvider from '@/common/components/providers/jotai-provider';
 import type { ReactNode } from 'react';
 import { PublicStreamServerUrlProvider } from '@/utils/connect/client';
-import QueryClientProvider from '@/common/components/query-client-provider';
+import QueryClientProvider from '@/common/components/providers/query-client-provider';
 
 export default function Providers({
   children,
