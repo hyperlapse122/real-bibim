@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { getClient } from '@/utils/connect/server';
 import { ElizaService } from '@real-bibim/protos/connectrpc/eliza/v1/eliza_pb';
 import StreamServerTestClient from '@/common/components/stream-server-test-client';
+import { ThemeDropdownButton } from '@/common/components/ui/theme-dropdown-button';
 
 export default async function Home() {
   const client = getClient(ElizaService);
@@ -58,6 +59,7 @@ export default async function Home() {
           >
             Read our docs
           </a>
+          <ThemeDropdownButton />
         </div>
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
