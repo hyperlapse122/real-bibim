@@ -95,7 +95,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bufbuild/protobuf@npm:2.2.3, @bufbuild/protobuf@npm:^2.2.3":
+"@bufbuild/protobuf@npm:2.2.3, @bufbuild/protobuf@npm:^2.2.1, @bufbuild/protobuf@npm:^2.2.3":
   version: 2.2.3
   resolution: "@bufbuild/protobuf@npm:2.2.3"
   checksum: 10c0/546c38b924c4a8dd79ec457928cfb99a5aab2945d11f15f4f06894bdc148ea37a1ae8b78cf17de9bb5354cbb896f6af4099073690b5b2089e1b196cec963d6ec
@@ -119,7 +119,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@bufbuild/protoplugin@npm:2.2.3":
+"@bufbuild/protoplugin@npm:2.2.3, @bufbuild/protoplugin@npm:^2.2.1":
   version: 2.2.3
   resolution: "@bufbuild/protoplugin@npm:2.2.3"
   dependencies:
@@ -152,12 +152,65 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@connectrpc/connect-query-core@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "@connectrpc/connect-query-core@npm:2.0.1"
+  peerDependencies:
+    "@bufbuild/protobuf": 2.x
+    "@connectrpc/connect": ^2.0.0
+    "@tanstack/query-core": 5.x
+  checksum: 10c0/07f8e1142d031a9ad8e59e581bbc2ad0dfbad220228fa47a4aea6ec2199607499cf3663ef6ae4735573c44d64651da2e41fe0eaada4662e9706bfeffa5477a14
+  languageName: node
+  linkType: hard
+
+"@connectrpc/connect-query@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "@connectrpc/connect-query@npm:2.0.1"
+  dependencies:
+    "@connectrpc/connect-query-core": "npm:^2.0.1"
+  peerDependencies:
+    "@bufbuild/protobuf": 2.x
+    "@connectrpc/connect": ^2.0.0
+    "@tanstack/react-query": 5.x
+    react: ^18 || ^19
+    react-dom: ^18 || ^19
+  checksum: 10c0/18d0d3a14b5dcbc283b5ab45b9c4ba291eff2493ce33f93bcb4da09f7ede250860369c5667756d367b7bbcc659462e448d1c791dccaad95d815452b5b28d8c49
+  languageName: node
+  linkType: hard
+
+"@connectrpc/connect-web@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "@connectrpc/connect-web@npm:2.0.2"
+  peerDependencies:
+    "@bufbuild/protobuf": ^2.2.0
+    "@connectrpc/connect": 2.0.2
+  checksum: 10c0/d668b4ed31c2c14e4d996ede6a34f74e88dbecc8d9f8836aeedd50864f6e03b08045aefcee4b5f96744d8a7d5fa525d58e0f2b9db38a0ee0e1cabf09abc98320
+  languageName: node
+  linkType: hard
+
 "@connectrpc/connect@npm:^2.0.2":
   version: 2.0.2
   resolution: "@connectrpc/connect@npm:2.0.2"
   peerDependencies:
     "@bufbuild/protobuf": ^2.2.0
   checksum: 10c0/e1bf64e51fab1fb9148f4122404e1e943ff7e1c16cc241a16e040386217741a4fda65f65e3f44ddcf9b8799115234298f429815debc317a6911ffa75b155b1ba
+  languageName: node
+  linkType: hard
+
+"@connectrpc/protoc-gen-connect-query@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "@connectrpc/protoc-gen-connect-query@npm:2.0.1"
+  dependencies:
+    "@bufbuild/protobuf": "npm:^2.2.1"
+    "@bufbuild/protoplugin": "npm:^2.2.1"
+  peerDependencies:
+    "@bufbuild/protoc-gen-es": 2.x
+  peerDependenciesMeta:
+    "@bufbuild/protoc-gen-es":
+      optional: true
+  bin:
+    protoc-gen-connect-query: bin/protoc-gen-connect-query
+  checksum: 10c0/dcf1ccff26dc42569b6968d0eb29d578f2938bf8998fe32db0990e7da00caff67db79fb62e79c3dc1869b7e7ad24f1551d1fece93309fa1a3cce46fcf1d4c45a
   languageName: node
   linkType: hard
 
@@ -961,6 +1014,7 @@ __metadata:
     "@bufbuild/buf": "npm:^1.50.0"
     "@bufbuild/protobuf": "npm:^2.2.3"
     "@bufbuild/protoc-gen-es": "npm:^2.2.3"
+    "@connectrpc/protoc-gen-connect-query": "npm:^2.0.1"
     "@real-bibim/eslint-config": "workspace:^"
     "@real-bibim/prettier-config": "workspace:^"
     eslint: "npm:^9.21.0"
@@ -1014,22 +1068,31 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@real-bibim/web@workspace:apps/web"
   dependencies:
+    "@bufbuild/protobuf": "npm:^2.2.3"
+    "@connectrpc/connect": "npm:^2.0.2"
+    "@connectrpc/connect-query": "npm:^2.0.1"
+    "@connectrpc/connect-web": "npm:^2.0.2"
     "@eslint/eslintrc": "npm:^3.3.0"
     "@next/eslint-plugin-next": "npm:^15.2.0"
     "@real-bibim/eslint-config": "workspace:^"
     "@real-bibim/prettier-config": "workspace:^"
+    "@real-bibim/protos": "workspace:^"
     "@tailwindcss/postcss": "npm:^4.0.9"
+    "@tanstack/react-query": "npm:^5.66.11"
     "@types/node": "npm:^22.13.8"
     "@types/react": "npm:^19.0.10"
     "@types/react-dom": "npm:^19.0.4"
     "@typescript-eslint/eslint-plugin": "npm:^8.25.0"
     "@typescript-eslint/parser": "npm:^8.25.0"
+    client-only: "npm:^0.0.1"
     eslint: "npm:^9.21.0"
     eslint-config-next: "npm:15.2.0"
+    jotai: "npm:^2.12.1"
     next: "npm:15.2.0"
     prettier: "npm:3.5.3"
     react: "npm:^19.0.0"
     react-dom: "npm:^19.0.0"
+    server-only: "npm:^0.0.1"
     tailwindcss: "npm:^4.0.9"
     typescript: "npm:^5.8.2"
   languageName: unknown
@@ -1505,6 +1568,24 @@ __metadata:
     postcss: "npm:^8.4.41"
     tailwindcss: "npm:4.0.9"
   checksum: 10c0/ee6e2ef244bf4384594a9486df9d680ef892faeafd114236d81e9855154d2f8ef79631febb09064a9df6191251ab631b28ebcbcd78b88bb45a732c855fb3ef68
+  languageName: node
+  linkType: hard
+
+"@tanstack/query-core@npm:5.66.11":
+  version: 5.66.11
+  resolution: "@tanstack/query-core@npm:5.66.11"
+  checksum: 10c0/0d8b6356fc282b11e731be9fecdcd0f9571b202bcacd079bf30274a3b951ff45c136b9892a1b93ae426782f7cb8d82f06028bbae0b1eb46a578318ab07ac081e
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query@npm:^5.66.11":
+  version: 5.66.11
+  resolution: "@tanstack/react-query@npm:5.66.11"
+  dependencies:
+    "@tanstack/query-core": "npm:5.66.11"
+  peerDependencies:
+    react: ^18 || ^19
+  checksum: 10c0/8055abb73116eb93eef373f4766972088c86cfcb5355b4c724cdcbd499d0565d819e8e9e95288836948d87ccdc53e74f67f26da83cf454e7056939a4e35b4953
   languageName: node
   linkType: hard
 
@@ -2262,7 +2343,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"client-only@npm:0.0.1":
+"client-only@npm:0.0.1, client-only@npm:^0.0.1":
   version: 0.0.1
   resolution: "client-only@npm:0.0.1"
   checksum: 10c0/9d6cfd0c19e1c96a434605added99dff48482152af791ec4172fb912a71cff9027ff174efd8cdb2160cc7f377543e0537ffc462d4f279bc4701de3f2a3c4b358
@@ -5652,6 +5733,13 @@ __metadata:
     parseurl: "npm:~1.3.3"
     send: "npm:0.19.0"
   checksum: 10c0/528fff6f5e12d0c5a391229ad893910709bc51b5705962b09404a1d813857578149b8815f35d3ee5752f44cd378d0f31669d4b1d7e2d11f41e08283d5134bd1f
+  languageName: node
+  linkType: hard
+
+"server-only@npm:^0.0.1":
+  version: 0.0.1
+  resolution: "server-only@npm:0.0.1"
+  checksum: 10c0/4704f0ef85da0be981af6d4ed8e739d39bcfd265b9c246a684060acda5642d0fdc6daffc2308e71e2682c5f508090978802eae0a77623c9b90a49f9ae68048d6
   languageName: node
   linkType: hard
 

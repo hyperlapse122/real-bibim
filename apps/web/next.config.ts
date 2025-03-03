@@ -1,7 +1,15 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  logging: {
+    fetches: {
+      fullUrl: true,
+      hmrRefreshes: true,
+    },
+  },
+  experimental: {
+    serverComponentsHmrCache: false, // defaults to true
+  },
 };
 
 export default nextConfig;
