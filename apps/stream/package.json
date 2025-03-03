@@ -4,12 +4,6 @@
   "type": "module",
   "main": "./dist/index.js",
   "prettier": "@real-bibim/prettier-config",
-  "exports": {
-    "./router": {
-      "types": "./dist/trpc/app-router.d.ts",
-      "default": "./dist/trpc/app-router.js"
-    }
-  },
   "scripts": {
     "clean": "rimraf ./dist",
     "build": "yarn clean && tsc && tsc-alias",
@@ -21,7 +15,6 @@
   "dependencies": {
     "@discordjs/opus": "^0.10.0",
     "@discordjs/voice": "^0.18.0",
-    "@trpc/server": "^11.0.0-rc.817",
     "bufferutil": "^4.0.9",
     "child_process": "^1.0.2",
     "cors": "^2.8.5",
@@ -34,7 +27,6 @@
     "react": "^19.0.0",
     "superjson": "^2.2.2",
     "ts-pattern": "^5.6.2",
-    "ws": "^8.18.1",
     "zlib-sync": "^0.1.9",
     "zod": "^3.24.2"
   },
@@ -48,7 +40,6 @@
     "@types/express": "^5.0.0",
     "@types/node": "^22.13.5",
     "@types/react": "^19.0.10",
-    "@types/ws": "^8.5.14",
     "esbuild": "^0.25.0",
     "eslint": "^9.21.0",
     "nodemon": "^3.1.9",
