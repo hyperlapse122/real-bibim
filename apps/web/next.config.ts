@@ -1,7 +1,17 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: 'standalone',
+  logging: {
+    fetches: {
+      fullUrl: true,
+      hmrRefreshes: true,
+    },
+  },
+  experimental: {
+    serverComponentsHmrCache: false, // defaults to true
+  },
+  transpilePackages: ['jotai-devtools'],
 };
 
 export default nextConfig;

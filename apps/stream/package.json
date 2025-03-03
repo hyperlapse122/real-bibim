@@ -13,8 +13,12 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
+    "@bufbuild/protobuf": "^2.2.3",
+    "@connectrpc/connect-express": "^2.0.2",
+    "@connectrpc/connect-node": "^2.0.2",
     "@discordjs/opus": "^0.10.0",
     "@discordjs/voice": "^0.18.0",
+    "@real-bibim/protos": "workspace:^",
     "bufferutil": "^4.0.9",
     "child_process": "^1.0.2",
     "cors": "^2.8.5",
@@ -30,6 +34,7 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@connectrpc/connect": "^2.0.2",
     "@real-bibim/eslint-config": "workspace:^",
     "@real-bibim/prettier-config": "workspace:^",
     "@swc/core": "^1.11.5",

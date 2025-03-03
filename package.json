@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "packageManager": "yarn@4.6.0",
+  "scripts": {
+    "build": "turbo build"
+  },
   "workspaces": [
     "apps/*",
     "packages/*"

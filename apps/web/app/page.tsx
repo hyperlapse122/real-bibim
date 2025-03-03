@@ -1,6 +1,14 @@
 import Image from 'next/image';
+import { getClient } from '@/utils/connect/server';
+import { ElizaService } from '@real-bibim/protos/connectrpc/eliza/v1/eliza_pb';
+import StreamServerTestClient from '@/common/components/stream-server-test-client';
 
-export default function Home() {
+export default async function Home() {
+  const client = getClient(ElizaService);
+  const result = await client.say({
+    sentence: 'Hello',
+  });
+
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
@@ -13,14 +21,17 @@ export default function Home() {
           priority
         />
         <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
+          <li className="my-1">
             Get started by editing{' '}
             <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
               app/page.tsx
             </code>
             .
           </li>
-          <li>Save and see your changes instantly.</li>
+          <li className="my-1">Save and see your changes instantly.</li>
+          <li className="my-1">
+            <StreamServerTestClient sentence={result.sentence} />
+          </li>
         </ol>
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
