@@ -1,0 +1,31 @@
+{
+  "name": "@real-bibim/protos",
+  "packageManager": "yarn@4.6.0",
+  "type": "module",
+  "scripts": {
+    "lint": "buf lint && eslint",
+    "generate": "buf generate",
+    "build": "yarn generate && tsc -b ./tsconfig.cjs.json ./tsconfig.esm.json ./tsconfig.types.json"
+  },
+  "exports": {
+    "./connectrpc/eliza/v1/*": {
+      "types": "./dist/types/connectrpc/eliza/v1/*.d.ts",
+      "require": "./dist/cjs/connectrpc/eliza/v1/*.js",
+      "import": "./dist/esm/connectrpc/eliza/v1/*.js",
+      "default": "./dist/esm/connectrpc/eliza/v1/*.js"
+    }
+  },
+  "devDependencies": {
+    "@bufbuild/buf": "^1.50.0",
+    "@bufbuild/protoc-gen-es": "^2.2.3",
+    "@real-bibim/eslint-config": "workspace:^",
+    "@real-bibim/prettier-config": "workspace:^",
+    "eslint": "^9.21.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2"
+  },
+  "prettier": "@real-bibim/prettier-config",
+  "dependencies": {
+    "@bufbuild/protobuf": "^2.2.3"
+  }
+}
