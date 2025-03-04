@@ -4,9 +4,14 @@ import { match, Pattern } from 'ts-pattern';
 import cors from 'cors';
 import routes from './connect';
 import { expressConnectMiddleware } from '@connectrpc/connect-express';
+import { init as discordInit } from '@/bot.js';
 
 dotenv.config({
   path: ['.env.local', '.env'],
+});
+
+discordInit().then(() => {
+  console.log('Discord client initialized');
 });
 
 const app = express();
@@ -39,8 +44,3 @@ if (import.meta.env.PROD) {
 }
 
 export const viteNodeApp: Express = app;
-
-const { init: discordInit } = await import('@/bot.js');
-discordInit().then(() => {
-  console.log('Discord client initialized');
-});

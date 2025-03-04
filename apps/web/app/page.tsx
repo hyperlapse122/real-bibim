@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import { getClient } from '@/utils/connect/server';
-import { ElizaService } from '@real-bibim/protos/connectrpc/eliza/v1/eliza_pb';
+import { ChannelService } from '@real-bibim/protos/hyperlapse/bibim/v1/channel_pb';
 import StreamServerTestClient from '@/common/components/stream-server-test-client';
 import { ThemeDropdownButton } from '@/common/components/ui/theme-dropdown-button';
 
 export default async function Home() {
-  const client = getClient(ElizaService);
-  const result = await client.say({
-    sentence: 'Hello',
+  const client = getClient(ChannelService);
+  const result = await client.isConnected({
+    channelId: 1068549623955869746n,
   });
 
   return (
@@ -31,7 +31,7 @@ export default async function Home() {
           </li>
           <li className="my-1">Save and see your changes instantly.</li>
           <li className="my-1">
-            <StreamServerTestClient sentence={result.sentence} />
+            <StreamServerTestClient sentence={result.connected.toString()} />
           </li>
         </ol>
 

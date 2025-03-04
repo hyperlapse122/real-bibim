@@ -31,10 +31,12 @@ const audioPlayerAtomFamily: AtomFamily<
       const player = get(playerAtom);
       const queue = get(mediaQueueAtomFamily(channelId));
 
+      console.log(channelId, 'attach');
       queue.on(QueueEvent.ENQUEUE, onEnqueueOnIdle);
       player.on('stateChange', onStateChangedToIdle);
 
       return () => {
+        console.log(channelId, 'cleanup');
         queue.off(QueueEvent.ENQUEUE, onEnqueueOnIdle);
         player.off('stateChange', onStateChangedToIdle);
       };

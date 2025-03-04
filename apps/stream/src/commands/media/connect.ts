@@ -5,7 +5,7 @@ import {
 } from 'discord.js';
 import store from '@/atoms/store.js';
 import voiceConnectionAtomFamily from '@/atoms/voice-connection-atom-family.js';
-import audioPlayerAtomFamily from '@/atoms/audio-player-atom-family.js';
+import audioPlayerAtomFamily from '@/atoms/audio-player-atom-family';
 
 export const data = new SlashCommandBuilder()
   .setName('connect')

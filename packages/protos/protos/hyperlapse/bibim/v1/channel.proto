@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package hyperlapse.bibim.v1;
+
+message IsConnectedRequest {
+  int64 channel_id = 2;
+}
+
+message IsConnectedResponse {
+  bool connected = 1;
+}
+
+message MediaEnqueueRequest {
+  int64 channel_id = 1;
+  string url = 2;
+}
+
+message MediaEnqueueResponse {}
+
+service ChannelService {
+  rpc IsConnected(IsConnectedRequest) returns (IsConnectedResponse) {}
+  rpc MediaEnqueue(MediaEnqueueRequest) returns (MediaEnqueueResponse) {}
+}

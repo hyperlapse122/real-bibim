@@ -38,6 +38,11 @@ export async function execute(interaction: ChatInputCommandInteraction) {
   await interaction.reply('Disconnecting...');
   try {
     connection.destroy();
+    voiceConnectionAtomFamily.remove({
+      channelId,
+      guildId,
+    });
+    audioPlayerAtomFamily.remove(channelId);
     await interaction.editReply('Disconnected!');
   } catch (e) {
     console.error(e);
